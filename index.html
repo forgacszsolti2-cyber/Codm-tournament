@@ -3,89 +3,113 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CODM Tournament Hub</title>
+<title>CODM Esports Hub</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0b0b0b;
-  color: white;
+body{
+  margin:0;
+  font-family:Arial;
+  background: radial-gradient(circle at top, #1a1a1a, #000);
+  color:white;
 }
 
-header {
-  text-align: center;
-  padding: 40px 20px;
-  background: #111;
-  border-bottom: 2px solid red;
+header{
+  text-align:center;
+  padding:50px 20px;
+  background: linear-gradient(90deg,#000,#111,#000);
+  border-bottom:2px solid red;
 }
 
-h1 {
-  color: red;
-  margin: 0;
+h1{
+  margin:0;
+  font-size:40px;
+  color:red;
+  letter-spacing:2px;
+  text-shadow:0 0 15px red;
 }
 
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
+.subtitle{
+  color:#aaa;
+  margin-top:10px;
 }
 
-.card {
-  background: #1a1a1a;
-  margin: 20px 0;
-  padding: 20px;
-  border-radius: 12px;
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
 }
 
-.title {
-  color: red;
-  font-size: 20px;
+.card{
+  background: rgba(255,255,255,0.05);
+  border:1px solid rgba(255,0,0,0.3);
+  padding:20px;
+  margin:20px 0;
+  border-radius:15px;
+  backdrop-filter: blur(6px);
+  transition:0.3s;
+  box-shadow:0 0 15px rgba(255,0,0,0.1);
 }
 
-.price {
-  color: #00ff99;
-  font-weight: bold;
+.card:hover{
+  transform:scale(1.02);
+  box-shadow:0 0 25px rgba(255,0,0,0.3);
 }
 
-button {
-  margin-top: 10px;
-  padding: 10px;
-  width: 100%;
-  background: red;
-  border: none;
-  color: white;
-  border-radius: 6px;
+.title{
+  color:red;
+  font-size:22px;
+  margin-bottom:10px;
 }
 
-button:hover {
-  background: darkred;
+.price{
+  color:#00ff99;
+  font-weight:bold;
 }
 
-input, select {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border-radius: 5px;
-  border: none;
+button{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border:none;
+  border-radius:8px;
+  background:linear-gradient(90deg,red,darkred);
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.2s;
 }
 
-#list {
-  margin-top: 20px;
+button:hover{
+  transform:scale(1.03);
 }
 
-.item {
-  background: #333;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 5px;
+input,select{
+  width:100%;
+  padding:12px;
+  margin-top:8px;
+  border-radius:8px;
+  border:none;
+  outline:none;
 }
 
-footer {
-  text-align: center;
-  color: gray;
-  font-size: 12px;
-  padding: 20px;
+.item{
+  background:#222;
+  padding:10px;
+  margin-top:10px;
+  border-radius:8px;
+  border-left:3px solid red;
+}
+
+.pool{
+  color:#00ff99;
+  margin-top:10px;
+}
+
+footer{
+  text-align:center;
+  color:#777;
+  padding:20px;
+  font-size:12px;
 }
 </style>
 </head>
@@ -93,92 +117,101 @@ footer {
 <body>
 
 <header>
-  <h1>CODM TOURNAMENT HUB</h1>
-  <p>Weekly & Monthly Competitive Events</p>
+<h1>CODM ESPORT HUB</h1>
+<div class="subtitle">Weekly & Monthly Competitive Tournaments</div>
 </header>
 
 <div class="container">
 
-<!-- TOURNAMENTS -->
 <div class="card">
-  <div class="title">🔥 1v1 Shipment Sniper</div>
-  <p>Fast sniper duels</p>
-  <p class="price">Entry: 5€</p>
+<div class="title">🔥 1v1 Shipment Sniper</div>
+<p>Fast sniper duels</p>
+<p class="price">Entry: 5€</p>
 </div>
 
 <div class="card">
-  <div class="title">⚔ Weekly S&D</div>
-  <p>Ranked style S&D</p>
-  <p class="price">Entry: 5€ / player</p>
+<div class="title">⚔ Weekly S&D Tournament</div>
+<p>Ranked style gameplay</p>
+<p class="price">Entry: 5€ / player</p>
 </div>
 
 <div class="card">
-  <div class="title">🏆 Monthly Scrim Bo5</div>
-  <p>Championship rules</p>
-  <p class="price">Entry: 5€ / player</p>
+<div class="title">🏆 Monthly Scrim Bo5</div>
+<p>Championship rules</p>
+<p class="price">Entry: 5€ / player</p>
 </div>
 
 <!-- REGISTER -->
 <div class="card">
-  <h2>Register</h2>
+<h2 style="color:red;">Register Now</h2>
 
-  <input id="name" placeholder="Your Name">
-  <input id="codid" placeholder="COD ID">
+<input id="name" placeholder="Your Name">
+<input id="codid" placeholder="COD ID">
 
-  <select id="tour">
-    <option>1v1 Sniper</option>
-    <option>S&D Tournament</option>
-    <option>Monthly Scrim</option>
-  </select>
+<select id="tour">
+<option>1v1 Sniper</option>
+<option>S&D Tournament</option>
+<option>Scrim Bo5</option>
+</select>
 
-  <button onclick="register()">Submit</button>
+<button onclick="register()">Join Tournament</button>
 
-  <div id="list"></div>
+<div class="pool" id="pool"></div>
+<div id="list"></div>
 </div>
 
 </div>
 
 <footer>
-Discord: YOUR_DISCORD_LINK | CODM Tournament © 2026
+CODM Esports Hub © 2026 | Competitive Gaming Platform
 </footer>
 
 <script>
+
 let regs = JSON.parse(localStorage.getItem("regs")) || [];
 
-function render() {
+function updatePool(){
+  let pool = regs.length * 5;
+  document.getElementById("pool").innerHTML =
+  "🔥 Prize Pool: " + pool + "€";
+}
+
+function render(){
   let list = document.getElementById("list");
   list.innerHTML = "";
 
-  regs.forEach(r => {
-    let div = document.createElement("div");
-    div.className = "item";
-    div.innerHTML = `
+  regs.forEach(r=>{
+    let div=document.createElement("div");
+    div.className="item";
+    div.innerHTML=`
       <b>${r.name}</b><br>
       ID: ${r.codid}<br>
       Tournament: ${r.tour}
     `;
     list.appendChild(div);
   });
+
+  updatePool();
 }
 
-function register() {
-  let name = document.getElementById("name").value;
-  let codid = document.getElementById("codid").value;
-  let tour = document.getElementById("tour").value;
+function register(){
+  let name=document.getElementById("name").value;
+  let codid=document.getElementById("codid").value;
+  let tour=document.getElementById("tour").value;
 
-  if(!name || !codid) {
-    alert("Fill all fields!");
+  if(!name||!codid){
+    alert("Fill all fields");
     return;
   }
 
-  regs.push({name, codid, tour});
-  localStorage.setItem("regs", JSON.stringify(regs));
+  regs.push({name,codid,tour});
+  localStorage.setItem("regs",JSON.stringify(regs));
 
   render();
-  alert("Registered!");
 }
 
 render();
+
 </script>
 
 </body>
