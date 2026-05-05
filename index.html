@@ -3,22 +3,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CODM Tournament</title>
+  <title>CODM Tournament Hub</title>
+
   <style>
     body {
-      font-family: Arial;
-      text-align: center;
-      background: #111;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0b0b;
       color: white;
-      padding-top: 100px;
     }
+
+    header {
+      background: #111;
+      padding: 25px;
+      text-align: center;
+      border-bottom: 2px solid red;
+    }
+
     h1 {
       color: red;
+      margin: 0;
+    }
+
+    .container {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .tournament {
+      background: #1a1a1a;
+      margin: 20px 0;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255,0,0,0.2);
+    }
+
+    .title {
+      font-size: 20px;
+      color: red;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      color: #00ff99;
+      font-weight: bold;
+    }
+
+    .prize {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 15px;
+      border: none;
+      background: red;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: darkred;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: gray;
+      font-size: 12px;
+      margin-top: 30px;
     }
   </style>
 </head>
+
 <body>
-  <h1>CODM Tournament</h1>
-  <p>Weboldal működik 🚀</p>
+
+<header>
+  <h1>CODM Tournament Hub</h1>
+  <p>Weekly & Monthly Competitive Events</p>
+</header>
+
+<div class="container">
+
+  <!-- 1v1 -->
+  <div class="tournament">
+    <div class="title">🔥 Weekly 1v1 Shipment Sniper Tournament</div>
+    <p>Fast-paced sniper duels on Shipment map.</p>
+    <p class="price">Entry Fee: 5€</p>
+    <div class="prize">
+      Prize Pool Distribution:<br>
+      🥇 1st Place - 50%<br>
+      🥈 2nd Place - 25%<br>
+      🥉 3rd Place - 10%
+    </div>
+    <button>Register 1v1</button>
+  </div>
+
+  <!-- S&D -->
+  <div class="tournament">
+    <div class="title">⚔ Weekly S&D Championship</div>
+    <p>Standard ranked-style Search & Destroy rules.</p>
+    <p class="price">Entry Fee: 5€ / player</p>
+    <div class="prize">
+      Prize Pool Distribution:<br>
+      🥇 1st Place - 50%<br>
+      🥈 2nd Place - 25%<br>
+      🥉 3rd Place - 10%
+    </div>
+    <button>Join S&D</button>
+  </div>
+
+  <!-- Scrim -->
+  <div class="tournament">
+    <div class="title">🏆 Monthly Scrim Bo5 Championship</div>
+    <p>Competitive scrims with Championship rules (Bo5).</p>
+    <p class="price">Entry Fee: 5€ / player</p>
+    <div class="prize">
+      Prize Pool Distribution:<br>
+      🥇 1st Place - 50%<br>
+      🥈 2nd Place - 25%<br>
+      🥉 3rd Place - 10%
+    </div>
+    <button>Join Scrim</button>
+  </div>
+
+</div>
+
+<footer>
+  CODM Tournament Hub © 2026
+</footer>
+
 </body>
 </html>
