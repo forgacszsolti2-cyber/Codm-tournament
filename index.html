@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CODM Tournament Hub</title>
 
   <style>
@@ -14,34 +14,45 @@
     }
 
     header {
-      background: #111;
-      padding: 25px;
       text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(90deg, #000, #1a1a1a);
       border-bottom: 2px solid red;
     }
 
     h1 {
       color: red;
       margin: 0;
+      font-size: 36px;
+    }
+
+    .subtitle {
+      color: #aaa;
+      margin-top: 10px;
     }
 
     .container {
-      padding: 20px;
       max-width: 900px;
       margin: auto;
+      padding: 20px;
     }
 
-    .tournament {
+    .card {
       background: #1a1a1a;
       margin: 20px 0;
       padding: 20px;
       border-radius: 12px;
-      box-shadow: 0 0 10px rgba(255,0,0,0.2);
+      box-shadow: 0 0 10px rgba(255,0,0,0.15);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
     }
 
     .title {
-      font-size: 20px;
       color: red;
+      font-size: 20px;
       margin-bottom: 10px;
     }
 
@@ -52,15 +63,15 @@
 
     .prize {
       margin-top: 10px;
-      font-size: 14px;
       color: #ccc;
+      font-size: 14px;
     }
 
     button {
       margin-top: 15px;
       padding: 10px 15px;
-      border: none;
       background: red;
+      border: none;
       color: white;
       border-radius: 6px;
       cursor: pointer;
@@ -70,12 +81,11 @@
       background: darkred;
     }
 
-    footer {
+    .info {
       text-align: center;
-      padding: 20px;
       color: gray;
-      font-size: 12px;
       margin-top: 30px;
+      font-size: 12px;
     }
   </style>
 </head>
@@ -83,59 +93,56 @@
 <body>
 
 <header>
-  <h1>CODM Tournament Hub</h1>
-  <p>Weekly & Monthly Competitive Events</p>
+  <h1>CODM TOURNAMENT HUB</h1>
+  <div class="subtitle">Weekly & Monthly Competitive Events</div>
 </header>
 
 <div class="container">
 
-  <!-- 1v1 -->
-  <div class="tournament">
-    <div class="title">🔥 Weekly 1v1 Shipment Sniper Tournament</div>
-    <p>Fast-paced sniper duels on Shipment map.</p>
+  <div class="card">
+    <div class="title">🔥 Weekly 1v1 Shipment Sniper</div>
+    <p>Fast sniper duels on Shipment map.</p>
     <p class="price">Entry Fee: 5€</p>
     <div class="prize">
-      Prize Pool Distribution:<br>
-      🥇 1st Place - 50%<br>
-      🥈 2nd Place - 25%<br>
-      🥉 3rd Place - 10%
+      Prize Pool:<br>
+      🥇 1st - 50%<br>
+      🥈 2nd - 25%<br>
+      🥉 3rd - 10%
     </div>
-    <button>Register 1v1</button>
+    <button onclick="alert('Join via Discord (add link later)')">Register</button>
   </div>
 
-  <!-- S&D -->
-  <div class="tournament">
+  <div class="card">
     <div class="title">⚔ Weekly S&D Championship</div>
-    <p>Standard ranked-style Search & Destroy rules.</p>
+    <p>Ranked-style Search & Destroy rules.</p>
     <p class="price">Entry Fee: 5€ / player</p>
     <div class="prize">
-      Prize Pool Distribution:<br>
-      🥇 1st Place - 50%<br>
-      🥈 2nd Place - 25%<br>
-      🥉 3rd Place - 10%
+      Prize Pool:<br>
+      🥇 1st - 50%<br>
+      🥈 2nd - 25%<br>
+      🥉 3rd - 10%
     </div>
-    <button>Join S&D</button>
+    <button onclick="alert('Join via Discord (add link later)')">Join</button>
   </div>
 
-  <!-- Scrim -->
-  <div class="tournament">
-    <div class="title">🏆 Monthly Scrim Bo5 Championship</div>
-    <p>Competitive scrims with Championship rules (Bo5).</p>
+  <div class="card">
+    <div class="title">🏆 Monthly Scrim Bo5</div>
+    <p>Competitive scrims with Championship rules.</p>
     <p class="price">Entry Fee: 5€ / player</p>
     <div class="prize">
-      Prize Pool Distribution:<br>
-      🥇 1st Place - 50%<br>
-      🥈 2nd Place - 25%<br>
-      🥉 3rd Place - 10%
+      Prize Pool:<br>
+      🥇 1st - 50%<br>
+      🥈 2nd - 25%<br>
+      🥉 3rd - 10%
     </div>
-    <button>Join Scrim</button>
+    <button onclick="alert('Join via Discord (add link later)')">Register</button>
   </div>
 
 </div>
 
-<footer>
-  CODM Tournament Hub © 2026
-</footer>
+<div class="info">
+  CODM Tournament Hub © 2026 | Powered by Competitive Community
+</div>
 
 </body>
 </html>
