@@ -1,196 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CODM Esports Hub</title>
+"use client";
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+import { useState } from "react"; import { motion } from "framer-motion";
 
-<style>
-body {
-  margin: 0;
-  font-family: Orbitron, Arial;
-  background: black;
-  color: white;
-  overflow-x: hidden;
-}
+export default function CodmEsportsPlatform() { const [selected, setSelected] = useState(null);
 
-/* ANIMATED BACKGROUND */
-.bg {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at top, #220000, #000);
-  animation: pulse 6s infinite alternate;
-  z-index: -1;
-}
+const tournaments = [ { id: 1, name: "Heti 1v1 Shipment Sniper", fee: "5€", schedule: "Heti", format: "1v1 Sniper", rules: "Shipment map only, sniper only", prizeSplit: "1. 50% / 2. 25% / 3. 15%" }, { id: 2, name: "Heti S&D Bajnokság", fee: "5€", schedule: "Heti", format: "Search & Destroy", rules: "Nincs külön szabály, ranked szabályok", prizeSplit: "1. 50% / 2. 25% / 3. 15%" }, { id: 3, name: "Havi Scrim Bajnokság", fee: "5€", schedule: "Havi", format: "Scrim (Champ Rules)", rules: "Championship szabályok szerint", prizeSplit: "1. 50% / 2. 25% / 3. 15%" } ];
 
-@keyframes pulse {
-  from { filter: brightness(1); }
-  to { filter: brightness(1.5); }
-}
+return ( <div className="min-h-screen text-white relative overflow-hidden">
 
-/* HEADER */
-header {
-  text-align: center;
-  padding: 60px 20px;
-}
+{/* Background */}
+  <div className="absolute inset-0 bg-gradient-to-br from-black via-purple-900 to-black animate-pulse" />
+  <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_20%_20%,#7c3aed,transparent_40%),radial-gradient(circle_at_80%_80%,#06b6d4,transparent_40%)]" />
 
-h1 {
-  font-size: 45px;
-  color: red;
-  text-shadow: 0 0 20px red;
-}
+  <div className="relative z-10 p-6">
 
-.subtitle {
-  color: #aaa;
-}
+    {/* Header */}
+    <motion.h1
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="text-5xl font-bold text-center mb-2"
+    >
+      CODM Esports Arena
+    </motion.h1>
 
-/* NAV */
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 30px;
-}
+    <p className="text-center text-gray-300 mb-10">
+      Heti & havi versenyek • Fix prize pool rendszer • 5€ nevezés
+    </p>
 
-nav a {
-  color: white;
-  text-decoration: none;
-  padding: 8px 15px;
-  border: 1px solid red;
-  border-radius: 5px;
-  transition: 0.3s;
-}
+    {/* Tournament Cards */}
+    <div className="grid md:grid-cols-3 gap-6">
+      {tournaments.map((t, i) => (
+        <motion.div
+          key={t.id}
+          whileHover={{ scale: 1.05 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: i * 0.1 }}
+          className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 shadow-xl cursor-pointer"
+          onClick={() => setSelected(t)}
+        >
+          <h2 className="text-2xl font-bold mb-2">{t.name}</h2>
 
-nav a:hover {
-  background: red;
-}
+          <p className="text-gray-300 text-sm mb-2">📅 {t.schedule}</p>
+          <p className="text-gray-300 text-sm mb-2">🎮 {t.format}</p>
+          <p className="text-gray-300 text-sm mb-2">📜 {t.rules}</p>
 
-/* GRID */
-.container {
-  max-width: 1000px;
-  margin: auto;
-  padding: 20px;
-}
+          <div className="flex justify-between text-sm mt-3">
+            <span>Belépő: <b>{t.fee}</b></span>
+          </div>
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 20px;
-}
+          <p className="text-xs text-gray-400 mt-2">🏆 {t.prizeSplit}</p>
 
-.card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,0,0,0.3);
-  padding: 20px;
-  border-radius: 15px;
-  transition: 0.3s;
-}
+          <button className="mt-4 w-full py-2 rounded-xl bg-gradient-to-r from-purple-600 to-blue-500 hover:opacity-80">
+            Nevezés
+          </button>
+        </motion.div>
+      ))}
+    </div>
 
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px red;
-}
+    {/* Modal */}
+    {selected && (
+      <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          className="bg-gray-900 p-6 rounded-2xl w-96 border border-white/20"
+        >
+          <h2 className="text-2xl font-bold mb-2">{selected.name}</h2>
+          <p className="text-gray-300 mb-4">Verseny regisztráció</p>
 
-.title {
-  color: red;
-}
+          <input className="w-full p-2 mb-2 rounded bg-black/50 border border-white/10" placeholder="CODM név" />
+          <input className="w-full p-2 mb-4 rounded bg-black/50 border border-white/10" placeholder="Email" />
 
-/* BUTTON */
-button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  background: linear-gradient(90deg, red, darkred);
-  border: none;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-}
+          <button className="w-full py-2 bg-green-500 rounded-xl mb-2">
+            5€ befizetés & nevezés
+          </button>
 
-/* STREAM */
-iframe {
-  width: 100%;
-  height: 200px;
-  border-radius: 10px;
-}
+          <button
+            onClick={() => setSelected(null)}
+            className="w-full py-2 bg-red-500 rounded-xl"
+          >
+            Bezárás
+          </button>
+        </motion.div>
+      </div>
+    )}
 
-/* LEADERBOARD */
-.board {
-  background: #111;
-  padding: 20px;
-  border-radius: 15px;
-  margin-top: 20px;
-}
+    <div className="text-center mt-20 text-gray-400 text-sm">
+      © 2026 CODM Esports Platform
+    </div>
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 30px;
-  color: gray;
-}
-</style>
-</head>
-
-<body>
-
-<div class="bg"></div>
-
-<header>
-<h1>CODM ESPORTS HUB</h1>
-<div class="subtitle">Professional Competitive Platform</div>
-</header>
-
-<nav>
-<a href="#">Home</a>
-<a href="#">Tournaments</a>
-<a href="#">Live</a>
-<a href="#">Leaderboard</a>
-</nav>
-
-<div class="container">
-
-<div class="grid">
-
-<div class="card">
-<div class="title">🔥 Weekly 1v1 Sniper</div>
-<p>Entry: 5€</p>
-<button onclick="alert('Payment link (add Stripe/PayPal later)')">Join</button>
+  </div>
 </div>
 
-<div class="card">
-<div class="title">⚔ S&D Championship</div>
-<p>Ranked rules</p>
-<button>Join</button>
-</div>
-
-<div class="card">
-<div class="title">🏆 Scrim Bo5</div>
-<p>Monthly tournament</p>
-<button>Join</button>
-</div>
-
-<div class="card">
-<div class="title">🎥 LIVE STREAM</div>
-<iframe src="https://www.youtube.com/embed/live_stream?channel=UC-9-kyTW8ZkZNDHQJ6FgpwQ" allowfullscreen></iframe>
-</div>
-
-</div>
-
-<div class="board">
-<h2 style="color:red;">Leaderboard</h2>
-<p>🥇 Player 1 - 120 pts</p>
-<p>🥈 Player 2 - 100 pts</p>
-<p>🥉 Player 3 - 90 pts</p>
-</div>
-
-</div>
-
-<footer>
-CODM Esports Hub © 2026 | Built for Competitive Gaming
-</footer>
-
-</body>
-</html>
+); }
