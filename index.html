@@ -1,63 +1,69 @@
-      <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CODM Esports Hub</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
 body{
   margin:0;
-  font-family:Arial;
-  background: radial-gradient(circle at top, #1a1a1a, #000);
+  font-family:Orbitron, Arial;
+  background:#050505;
   color:white;
 }
 
+/* TOP HEADER */
 header{
   text-align:center;
-  padding:50px 20px;
-  background: linear-gradient(90deg,#000,#111,#000);
-  border-bottom:2px solid red;
+  padding:60px 20px;
+  background: radial-gradient(circle at top, #1a0000, #000);
+  border-bottom:1px solid red;
 }
 
 h1{
   margin:0;
-  font-size:40px;
-  color:red;
-  letter-spacing:2px;
-  text-shadow:0 0 15px red;
+  font-size:42px;
+  color:#ff2a2a;
+  letter-spacing:3px;
+  text-shadow:0 0 20px red;
 }
 
 .subtitle{
-  color:#aaa;
   margin-top:10px;
+  color:#888;
 }
 
+/* LAYOUT */
 .container{
-  max-width:900px;
+  max-width:1000px;
   margin:auto;
   padding:20px;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap:20px;
 }
 
+/* CARD */
 .card{
-  background: rgba(255,255,255,0.05);
-  border:1px solid rgba(255,0,0,0.3);
+  background:#0f0f0f;
+  border:1px solid rgba(255,0,0,0.2);
   padding:20px;
-  margin:20px 0;
   border-radius:15px;
-  backdrop-filter: blur(6px);
   transition:0.3s;
-  box-shadow:0 0 15px rgba(255,0,0,0.1);
+  box-shadow:0 0 10px rgba(255,0,0,0.05);
 }
 
 .card:hover{
-  transform:scale(1.02);
+  transform:translateY(-5px);
   box-shadow:0 0 25px rgba(255,0,0,0.3);
 }
 
 .title{
-  color:red;
-  font-size:22px;
+  color:#ff2a2a;
+  font-size:18px;
   margin-bottom:10px;
 }
 
@@ -66,49 +72,61 @@ h1{
   font-weight:bold;
 }
 
-button{
-  width:100%;
-  padding:12px;
-  margin-top:10px;
-  border:none;
-  border-radius:8px;
-  background:linear-gradient(90deg,red,darkred);
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
-  transition:0.2s;
-}
-
-button:hover{
-  transform:scale(1.03);
+/* FORM */
+.form{
+  grid-column:1/-1;
+  background:#0f0f0f;
+  padding:20px;
+  border-radius:15px;
+  border:1px solid rgba(255,0,0,0.3);
 }
 
 input,select{
   width:100%;
   padding:12px;
-  margin-top:8px;
+  margin-top:10px;
+  background:#111;
+  border:1px solid #222;
+  color:white;
   border-radius:8px;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  margin-top:15px;
+  background:linear-gradient(90deg,#ff0000,#800000);
   border:none;
-  outline:none;
-}
-
-.item{
-  background:#222;
-  padding:10px;
-  margin-top:10px;
+  color:white;
+  font-weight:bold;
   border-radius:8px;
-  border-left:3px solid red;
+  cursor:pointer;
 }
 
-.pool{
-  color:#00ff99;
+button:hover{
+  transform:scale(1.02);
+}
+
+/* LIST */
+.item{
   margin-top:10px;
+  padding:10px;
+  background:#111;
+  border-left:3px solid red;
+  border-radius:8px;
 }
 
+/* PRIZE */
+.pool{
+  margin-top:10px;
+  color:#00ff99;
+}
+
+/* FOOTER */
 footer{
   text-align:center;
-  color:#777;
   padding:20px;
+  color:#555;
   font-size:12px;
 }
 </style>
@@ -117,40 +135,40 @@ footer{
 <body>
 
 <header>
-<h1>CODM ESPORT HUB</h1>
-<div class="subtitle">Weekly & Monthly Competitive Tournaments</div>
+<h1>CODM ESPORTS</h1>
+<div class="subtitle">Competitive Tournament Platform</div>
 </header>
 
 <div class="container">
 
 <div class="card">
 <div class="title">🔥 1v1 Shipment Sniper</div>
-<p>Fast sniper duels</p>
+<p>Fast duels on Shipment map</p>
 <p class="price">Entry: 5€</p>
 </div>
 
 <div class="card">
-<div class="title">⚔ Weekly S&D Tournament</div>
-<p>Ranked style gameplay</p>
-<p class="price">Entry: 5€ / player</p>
+<div class="title">⚔ Weekly S&D</div>
+<p>Ranked-style competitive matches</p>
+<p class="price">Entry: 5€</p>
 </div>
 
 <div class="card">
 <div class="title">🏆 Monthly Scrim Bo5</div>
-<p>Championship rules</p>
-<p class="price">Entry: 5€ / player</p>
+<p>Championship rules, serious matches</p>
+<p class="price">Entry: 5€</p>
 </div>
 
 <!-- REGISTER -->
-<div class="card">
-<h2 style="color:red;">Register Now</h2>
+<div class="form">
+<h2 style="color:red;">Register</h2>
 
-<input id="name" placeholder="Your Name">
+<input id="name" placeholder="Player Name">
 <input id="codid" placeholder="COD ID">
 
 <select id="tour">
 <option>1v1 Sniper</option>
-<option>S&D Tournament</option>
+<option>S&D</option>
 <option>Scrim Bo5</option>
 </select>
 
@@ -163,17 +181,15 @@ footer{
 </div>
 
 <footer>
-CODM Esports Hub © 2026 | Competitive Gaming Platform
+CODM Esports Hub © 2026
 </footer>
 
 <script>
-
 let regs = JSON.parse(localStorage.getItem("regs")) || [];
 
 function updatePool(){
-  let pool = regs.length * 5;
   document.getElementById("pool").innerHTML =
-  "🔥 Prize Pool: " + pool + "€";
+  "🔥 Prize Pool: " + (regs.length * 5) + "€";
 }
 
 function render(){
@@ -185,8 +201,8 @@ function render(){
     div.className="item";
     div.innerHTML=`
       <b>${r.name}</b><br>
-      ID: ${r.codid}<br>
-      Tournament: ${r.tour}
+      ${r.codid}<br>
+      ${r.tour}
     `;
     list.appendChild(div);
   });
@@ -211,7 +227,6 @@ function register(){
 }
 
 render();
-
 </script>
 
 </body>
